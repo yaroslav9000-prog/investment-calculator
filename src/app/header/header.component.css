@@ -1,0 +1,13 @@
+header {
+    width: 100%;
+    height: 20em;
+    text-align: center;
+    color:aliceblue;
+}
+img{
+    width: 10em;
+    height: 10em;
+}
+header img{
+    margin: 2rem;
+}
