@@ -1,5 +1,5 @@
+
 <app-header/>
-<main>
-    <app-invest-form/>
-    <app-results (submit)="$event"/>
-</main>
+<app-invest-form (calculate)="calculateInvestmentResults($event)"/>
+<app-results [resultsArray]="theResults"/>
+
