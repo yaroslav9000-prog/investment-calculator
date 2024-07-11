@@ -1,3 +1,4 @@
+import { CalculateTheInvestments } from './../calculateResults.service';
 import { Component, EventEmitter, Output} from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { userInputs } from '../results/userInputs';
@@ -19,15 +20,15 @@ export class InvestFormComponent {
   expectedReturn = '5';
   duration = '10';
 
+  constructor(private investmentService: CalculateTheInvestments){}
+
   // NgModel two way binding doesnt work if my input components dont have name attribute.
 
   onSubmit(){
-    this.calculate.emit({
-      initialInvestment: +this.initialInvestment,
+    this.investmentService.calculateInvestmentResults({initialInvestment: +this.initialInvestment,
       annualInvestment: +this.annualInvestment,
       expectedReturn: +this.expectedReturn,
-      duration: +this.duration
-    });
+      duration : +this.duration})
     console.log("event emitted")
     // console.log(this.annualInvestment, this.duration, this.expectedReturn, this.initialInvestment);
   }

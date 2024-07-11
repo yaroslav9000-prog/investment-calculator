@@ -1,3 +1,4 @@
+import { CalculateTheInvestments } from './../calculateResults.service';
 import { CurrencyPipe } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { userInputs, YearInfo } from './userInputs';
@@ -9,5 +10,12 @@ import { userInputs, YearInfo } from './userInputs';
   styleUrl: './results.component.css'
 })
 export class ResultsComponent {
-  @Input() resultsArray ?: YearInfo[];
+
+  
+  
+  constructor(private investmentService: CalculateTheInvestments){}
+
+  get results(){
+    return this.investmentService.theResults;
+  }
 }
